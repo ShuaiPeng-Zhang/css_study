@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        body{
+            margin: 0;
+            padding: 0;
+            overflow:hidden;
+        }
+        .player{
+            transform: scale(0.5,0.5);
+            position: relative;
+            width: 653px;
+            height: 653px;
+            margin: 150px auto;
+            background-image:
+            url("images/player/bg_circle.png"),
+            url("images/player/bg_center.png");
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        .btn{
+            position: absolute;
+            width: 95px;
+            height: 95px;
+            background:url("images/player/btn-bg.png") no-repeat;
+            left: 50%;
+            margin-left: -47px;
+            top: 50%;
+            margin-top: -47px;
+        }
+        .btn-player{
+            position: absolute;
+            width: 32px;
+            height: 32px;
+            background: url("images/player/pause.png");
+            left: 50%;
+            margin-left: -16px;
+            top: 50%;
+            margin-top: -16px;
+        }
+        @keyframes rotate {
+            0%{
+                transform: rotate(0);
+            }
+            100%{
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+    <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript">
+    $(function () {
+        var $oBtn = $('.btn');
+        var oBtnPlayer = $('.btn-player')[0];
+        var $oAudio = $('.btn-player audio')[0];
+        $oBtn.click(function () {
+            if ($oAudio.paused){
+                oBtnPlayer.style.backgroundImage = "url('images/player/play.png')";
+                $('.player')[0].style.animation = "rotate 20s linear infinite";
+                $oAudio.play();
+            }
+            else if ($oAudio.played) {
+                oBtnPlayer.style.backgroundImage = "url('images/player/pause.png')";
+                $('.player')[0].style.animationPlayState = 'paused';
+                $oAudio.pause();
+            }
+        });
+// 键盘事件
+        $(document).keydown(function (event) {
+            // console.log(event);
+            var e = e || window.event;
+            if (e.keyCode == 32){
+                if ($oAudio.paused){
+                oBtnPlayer.style.backgroundImage = "url('images/player/play.png')";
+                $('.player')[0].style.animation = "rotate 20s linear infinite";
+                $oAudio.play();
+            }
+            else if ($oAudio.played) {
+                oBtnPlayer.style.backgroundImage = "url('images/player/pause.png')";
+                $('.player')[0].style.animationPlayState = 'paused';
+                $oAudio.pause();
+            }
+            }
+        })
+    });
+</script>
+</head>
+<body>
+<div class="player">
+    <div class="btn">
+        <div class="btn-player">
+            <audio id="audio" src="audios/music.mp3"></audio>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

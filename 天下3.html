@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>《天下3》官方网站</title>
+    <style type="text/css">
+        .tab{
+            width: 1200px;
+            height: 575px;
+            margin: 150px auto 0;
+        }
+        .tab a{
+            display: block;
+            width: 300px;
+            height: 75px;
+            background-image: url("./images/tianxia3/bg1.png");
+            background-repeat: no-repeat;
+            background-position: center;
+            color: #fff;
+            cursor: pointer;
+            text-decoration: none;
+            float: left;
+            text-align: center;
+            line-height: 75px;
+            font-family: '楷体';
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .picture{
+            height: 100%;
+            background-image: url("./images/tianxia3/p1.png");
+            transition: 0.1s;
+        }
+        .tab a:hover{
+            color: #fcc63d;
+            background-image: url("./images/tianxia3/bg2.png");
+        }
+        /*-- ~代表兄弟关系 --*/
+        .tab a:nth-child(2):hover ~ .picture{
+            background-image: url("./images/tianxia3/p2.png");
+        }
+        .tab a:nth-child(3):hover ~ .picture{
+            background-image: url("./images/tianxia3/p3.png");
+        }
+        .tab a:nth-child(4):hover ~ .picture{
+            background-image: url("./images/tianxia3/p4.png");
+        }
+
+    </style>
+
+</head>
+<body>
+    <div class="tab">
+        <a href="http://tx3.163.com/fab/">全新剧情</a>
+        <a href="http://tx3.163.com/fab/">全新动态地图</a>
+        <a href="http://tx3.163.com/fab/">全新战场</a>
+        <a href="http://tx3.163.com/fab/">全新社交</a>
+
+        <div class="picture"></div>
+    </div>
+
+</body>
+</html>

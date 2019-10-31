@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<!--ondragstart='return false'禁止拖拽-->
+<html lang="en" ondragstart="return false">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            var oImg = $('#wrap img');
+            var len = oImg.length;
+            // 夹角度数
+            var deg = 360 / len;
+            for (var i = 0;i<len;i++){
+                oImg[i].style.transform = "rotateY("+ i*deg +"deg) translateZ(350px)";
+                // 过度延迟
+                oImg[i].style.transitionDelay = (len - i)*0.1 + "s";
+            }
+        });
+
+        var rotateX = -20,rotateY = 0;
+        // 鼠标拖拽事件
+        document.onmousedown = function (event) {
+            console.log('鼠标按下');
+            var lastX = event.clientX,lastY = event.clientY;
+            this.onmousemove = function (event) {
+                var newX = event.clientX;
+                var newY = event.clientY;
+
+                var chaX = newX - lastX;
+                var chaY = newY - lastY;
+                // console.log(chaX,chaY);
+
+                rotateX = rotateX - chaY;
+                rotateY = rotateY + chaX;
+                wrap.style.transform = 'rotateX('+ rotateX +'deg) rotateY('+ rotateY +'deg)';
+
+                lastX = newX;
+                lastY = newY;
+            };
+            this.onmouseup = function () {
+                console.log('鼠标松开');
+                this.onmousemove = null;
+                };
+        }
+    </script>
+
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background: #000;
+        }
+        #wrap{
+            position: relative;
+            width: 133px;
+            height: 200px;
+            border: 1px solid red;
+            background: white;
+            margin: 300px auto;
+            transform-style: preserve-3d;
+            transform: rotateX(-20deg);
+        }
+        #wrap img{
+            position: absolute;
+            /*元素过度时间*/
+            transition: 1s;
+        }
+
+        #perspective{
+            /*场景景深 元素被查看的位置*/
+            perspective: 800px;
+        }
+    </style>
+</head>
+<body>
+<div id="perspective">
+    <div id="wrap">
+        <img src="images/3D/1.jpg" alt="">
+        <img src="images/3D/2.jpg" alt="">
+        <img src="images/3D/3.jpg" alt="">
+        <img src="images/3D/4.jpg" alt="">
+        <img src="images/3D/5.jpg" alt="">
+        <img src="images/3D/6.jpg" alt="">
+        <img src="images/3D/7.jpg" alt="">
+        <img src="images/3D/8.jpg" alt="">
+        <img src="images/3D/9.jpg" alt="">
+        <img src="images/3D/10.jpg" alt="">
+        <img src="images/3D/11.jpg" alt="">
+    </div>
+</div>
+
+</body>
+</html>

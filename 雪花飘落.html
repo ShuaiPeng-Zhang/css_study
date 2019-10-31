@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css雪花飘落</title>
+    <meta name="keywords" content="前端,css">
+    <meta name="description" content="这是一个css描述雪花飘落的网页">
+    <style type="text/css">
+        body{
+            margin: 0;
+        }
+        div{
+            width: 100%;
+            height: 315px;
+            background: url("images/xuehua/header-bg.png");
+        }
+        .snow{
+            width: 920px;
+            height: 315px;
+            background: url("images/xuehua/con-bg.png") no-repeat 0 204px,url("images/xuehua/snow-bg.png") 0 0;
+            margin:0 auto;
+        }
+
+    </style>
+    <script type="text/javascript">
+        window.onload = function () {
+            // var snow = document.getElementsByClassName('snow');
+            // alert(snow);
+            var snow = document.querySelector('.snow');
+            var y = 0;
+            var timer = setInterval(function () {
+                y++;
+                snow.style.backgroundPositionY = "204px,"+y+"px";
+            },13);
+        };
+    </script>
+</head>
+<body>
+    <div id="wrap">
+        <div class="snow"></div>
+    </div>
+</body>
+</html>

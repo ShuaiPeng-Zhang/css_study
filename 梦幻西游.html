@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        body{
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-image: url("images/menghuan/bac.webp");
+            background-repeat: no-repeat;
+            height: 100%;
+            background-size: 100%;
+        }
+        .footer{
+            width: 760px;
+            height: 240px;
+            margin: 250px auto;
+        }
+        .west{
+            width: 190px;
+            height: 240px;
+            float: left;
+            background-repeat: no-repeat;
+        }
+        .west:nth-child(1){
+            background-image: url("images/menghuan/west_01.png");
+            animation: 1s west1 steps(8) infinite;
+        }
+        .west:nth-child(2){
+            background-image: url("images/menghuan/west_02.png");
+            animation: 1s west1 steps(8) infinite;
+        }
+        .west:nth-child(3){
+            background-image: url("images/menghuan/west_03.png");
+            animation: 1s west3 steps(8) infinite;
+        }
+        .west:nth-child(4){
+            background-image: url("images/menghuan/west_04.png");
+            animation: 1s west4 steps(8) infinite;
+        }
+        @keyframes west1 {
+            from{
+                background-position-x: 0;
+            }
+            to{
+                background-position-x: -1600px;
+            }
+        }
+        @keyframes west3 {
+            from{
+                background-position-x: 0;
+            }
+            to{
+                background-position-x: -1360px;
+            }
+        }
+        @keyframes west4 {
+            from{
+                background-position-x: 0;
+            }
+            to{
+                background-position-x: -1680px;
+            }
+        }
+    </style>
+    <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript">
+
+    </script>
+</head>
+<body>
+<div class="footer">
+    <div class="west"></div>
+    <div class="west"></div>
+    <div class="west"></div>
+    <div class="west"></div>
+</div>
+</body>
+</html>

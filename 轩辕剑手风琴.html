@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>轩辕剑手风琴特效</title>
+    <style type="text/css">
+        .piclist{
+            width: 1156px;
+            height: 438px;
+            margin: 200px auto;
+        }
+        body{
+            margin: 0;
+        }
+        .list{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+        .list-item{
+            width: 86px;
+            height: 438px;
+            float: left;
+            background-image: url("./images/xuanyuanjian/pic1-on.jpg");
+            transition: 1s;
+        }
+        .list-item:nth-child(2){
+            background-image: url("./images/xuanyuanjian/pic2-on.jpg");
+        }
+        .list-item:nth-child(3){
+            background-image: url("./images/xuanyuanjian/pic3-on.jpg");
+        }
+        .list-item:nth-child(4){
+            background-image: url("./images/xuanyuanjian/pic4-on.jpg");
+        }
+        .list-item:nth-child(5){
+            background-image: url("./images/xuanyuanjian/pic5-on.jpg");
+        }
+        .show{
+            width: 812px;
+        }
+        .list-item img{
+            opacity: 1;
+        }
+        .show img{
+            opacity: 0;
+        }
+
+    </style>
+    <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+           $('.list-item').click(function () {
+              $(this).addClass('show').stop().siblings().removeClass('show');
+           });
+        });
+    </script>
+</head>
+<body>
+    <div class="piclist">
+        <ul class="list">
+            <li class="list-item">
+                <img src="./images/xuanyuanjian/pic1.png" alt="">
+            </li>
+            <li class="list-item">
+                <img src="./images/xuanyuanjian/pic2.png" alt="">
+            </li>
+            <li class="list-item">
+                <img src="./images/xuanyuanjian/pic3.png" alt="">
+            </li>
+            <li class="list-item">
+                <img src="./images/xuanyuanjian/pic4.png" alt="">
+            </li>
+            <li class="list-item show">
+                <img src="./images/xuanyuanjian/pic5.png" alt="">
+            </li>
+        </ul>
+    </div>
+
+</body>
+</html>
